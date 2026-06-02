@@ -11,7 +11,7 @@ import { config } from 'dotenv';
 config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // Database connection
 const client = new MongoClient(process.env.MONGODB_URL);
