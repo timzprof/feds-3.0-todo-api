@@ -4,8 +4,13 @@ import * as bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
 
 import { config } from 'dotenv';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Load environment variables
 config();
@@ -71,7 +76,7 @@ const swaggerSpec = swaggerJsdoc({
       },
     },
   },
-  apis: ['./index.mjs'],
+  apis: [join(__dirname, 'index.mjs')],
 });
 
 // Middlewares
